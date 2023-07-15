@@ -14,7 +14,15 @@ dfx build
 dfx canister install rep
 dfx canister install ver
 
-CanisterId=$(dfx canister id ver)
+VerCanisterId=$(dfx canister id ver)
+
+echo "Call Verification canister for current principal"
+
+dfx canister call ver init $(dfx identity get-principal)
+
+echo "Call Reputation canister and increase reputation balance for current user"
+
+dfx canister call rep incrementBalance '("'$(dfx identity get-principal)'", 1)'
 
 dfx deploy --argument "(
   principal\"$(dfx identity get-principal)\", 
@@ -28,6 +36,8 @@ dfx deploy --argument "(
     maxLimit = 1;
   }
 )" nft_container
+
+echo "Creating dNFT"
 
 dfx canister call nft_container mintDip721 \
 "(
@@ -45,5 +55,15 @@ dfx canister call nft_container mintDip721 \
     }
   }
 )"
+
+echo "dNFT has been created!"
+
+echo "Metadata: "
+
+dfx canister call nft_container getMetadataDip721 "0"
+
+echo " "
+
+echo "dNFT metadata will track reputation balance changes!"
 
 echo "DONE"

@@ -7,14 +7,10 @@ import Map "mo:base/HashMap";
 import Text "mo:base/Text";
 import Iter "mo:base/Iter";
 import Int "mo:base/Int";
-import Debug "mo:base/Debug";
 
 actor ReputationSystem {
 
-  type Balance = {
-    account : Text;
-    value : Int;
-  };
+  type Balance = Types.ReputationBalance;
 
   type Verifier = {
     account : Text;
@@ -40,8 +36,7 @@ actor ReputationSystem {
 
   public func incrementBalance(account: Text, increment: Int) : async () {
     let balanceOpt = balances.get(Principal.fromText(account));
-    let princ : Principal = await id();
-    Debug.print("Current principal: # Principal.toText(princ)");
+    
     let newBalance = switch (balanceOpt) {
       case (null) { 0 }; 
       case (?balance) { Int.add(balance, increment) }; 
@@ -51,12 +46,12 @@ actor ReputationSystem {
     publish(balanceObj);
   };
 
-//   // Function returning the caller's identifier
+//   Function returning the caller's identifier
   public shared (message) func whoami() : async Principal {
     return message.caller;
   };
 
-//   // Function returning the current actor's identifier
+//   Function returning the current actor's identifier
   public func id() : async Principal {
     return await whoami();
   };

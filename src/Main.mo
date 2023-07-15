@@ -25,9 +25,7 @@ shared actor class Dip721NFT(custodian: Principal, init : Types.Dip721NonFungibl
   stable var logo : Types.LogoResult = init.logo;
   stable var name : Text = init.name;
   stable var symbol : Text = init.symbol;
-  stable var maxLimit : Nat16 = init.maxLimit;
-
-  type Reputation = Types.Reputation;
+  stable var maxLimit : Nat16 = init.maxLimit;  
 
   func principalHash(p : Principal) : Hash.Hash { 
     Text.hash(Principal.toText(p))
@@ -229,43 +227,4 @@ shared actor class Dip721NFT(custodian: Principal, init : Types.Dip721NonFungibl
       }
     }
   };
-
-  public shared({ caller }) func mintDNFT(to: Principal, metadata: Types.MetadataDesc, balance: Int) : async Types.MintReceipt {
-   if (not List.some(custodians, func (custodian : Principal) : Bool { custodian == caller })) {
-      return #Err(#Unauthorized);
-    };
-    let canisterId = " .";
-    let methodName = "getBalance";
-
-    let newId = Nat64.fromNat(List.size(nfts));
-    // let balanceMetadata : Types.MetadataKeyVal = {
-    //   key = "balance";
-    //   val = #IntContent(balance)
-    // };
-
-    // let reputationMetadata : Types.MetadataKeyVal = {
-    //   key = "reputation";
-    //   val = #LinkContent(canisterId # methodName)
-    // };
-
-    // let newMetadata : Types.MetadataDesc = Array.map<Types.MetadataPart, Types.MetadataPart>(metadata, func(part) {
-    //   let newKeyValData = Array.append<Types.MetadataKeyVal>(part.key_val_data, [reputationMetadata]);
-    //   { part with key_val_data = newKeyValData }
-    // });
-    let nft : Types.Nft = {
-      owner = to;
-      id = newId;
-      metadata = metadata;
-    };
-
-    nfts := List.push(nft, nfts);
-
-    transactionId += 1;
-
-    return #Ok({
-      token_id = newId;
-      id = transactionId;
-    });
-  };
-
 }

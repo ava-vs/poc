@@ -96,29 +96,8 @@ module {
     id: Nat;
   };
 
-  public type Reputation = {
-    rep_balance: Int;    
-   };
-// rep_history: ReputationHistory;
-  public type ReputationHistory = [ReputationUpdate];
-
-  public type ReputationUpdate = {    
-    base_nft: Text; 
-    value: Text;
-   };
-
-  public type BalanceCounter = {
-    userId : Principal;
+  public type ReputationBalance = {
+    account : Text;
     value : Int;
-  };
-
-  public type Subscriber = {
-    userId : Principal;
-    callback : shared BalanceCounter -> ();
-  }; 
-
-  public type ReputationEvent = { 
-    subscriber: Principal; 
-    newReputation: Int 
   };
 };

@@ -1,2 +1,6 @@
-# poc
-aVa Verification System (Internet Computer). Proof of Concept.
+# Proof Of Concept
+aVa Verification System (Internet Computer)
+
+Type <code> ./demo.sh</code>
+
+

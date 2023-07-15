@@ -1,0 +1,16 @@
+{
+  "canisters": {
+    "nft_container": {
+      "type": "motoko",
+      "main": "src/Main.mo"
+    },
+    "rep": {
+      "type": "motoko",
+      "main": "src/ReputationSystem.mo"
+    },
+    "ver": {
+      "type": "motoko",
+      "main": "src/Verification.mo"
+    }
+  }
+}

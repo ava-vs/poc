@@ -1,22 +1,22 @@
 # Proof Of Concept
 aVa Verification System (Internet Computer)
 
-See aVa Wiki: https://github.com/ava-vs/poc/wiki
+See aVa [Wiki](https://github.com/ava-vs/poc/wiki)
 
 ## Install:
 
 Use commands:
+```bash
+dfx canister create rep
 
-<code> dfx canister create rep</code>
+dfx canister create ver
 
-<code> dfx canister create ver</code>
+dfx build
 
-<code> dfx build</code>
+dfx canister install rep
+dfx canister install ver
 
-<code> dfx canister install rep</code>
-<code> dfx canister install ver</code>
-
-<code> dfx deploy --argument "(
+dfx deploy --argument "(
   principal\"$(dfx identity get-principal)\", 
   record {
     logo = record {
@@ -27,9 +27,9 @@ Use commands:
     symbol = \"AVAD\";
     maxLimit = 1;
   }
-)" nft_container</code>
+)" nft_container
 
-<code> dfx canister call nft_container mintDip721 \
+dfx canister call nft_container mintDip721 \
 "(
   principal\"$(dfx identity get-principal)\", 
   vec { 
@@ -43,8 +43,8 @@ Use commands:
       }
     }
   }
-)"</code>
-
+)"
+```
 or 
 
 type <code> ./demo.sh</code>

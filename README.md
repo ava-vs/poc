@@ -1,4 +1,4 @@
-# Proof Of Concept
+# Proof-Of-Concept
 aVa Verification System (Internet Computer)
 
 See aVa [Wiki](https://github.com/ava-vs/poc/wiki)

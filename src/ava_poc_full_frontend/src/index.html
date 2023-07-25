@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width" />
+    <title>aVa_poc_full</title>
+    <base href="/" />
+    <link rel="icon" href="favicon.ico" />
+    <link type="text/css" rel="stylesheet" href="main.css" />
+  </head>
+  <body>
+    <main>
+      <img src="logo.png" alt="aVa logo" />
+      <br />
+      <br />  
+      <form action="#">
+        <label for="all">All users with balances:</label>        
+        <button id="getAllUsers" type="button">Get all users</button>
+      </form>  
+      <table id="usersTable">
+        <thead>
+            <tr>
+                <th>User</th>
+                <th>Reputation</th>
+            </tr>
+        </thead>
+        <tbody id="usersTableBody">         
+        </tbody>
+    </table>
+    <div id="errorOutput"></div>
+      
+      <br />  
+      <br />  
+      <form action="#">
+        <label for="name">Enter user id: </label>
+        <input id="name" placeholder="User ID" type="text" />
+        <button id="getBalanceButton" type="button">Get balance</button>
+      </form>
+      <div id="balanceResult"></div>
+      <br />  
+      <br />  
+      <form action="#">
+        <label for="user">Enter user id: </label>
+        <input id="user" placeholder="User ID" type="text" />
+        <button id="increaseRepoButton" type="button">Increase Reputation</button>
+      </form>
+      <div id="increaseResult"></div>
+
+    </main>
+  </body>
+</html>

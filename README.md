@@ -4,8 +4,23 @@ aVa Verification System (Internet Computer)
 See aVa [Wiki](https://github.com/ava-vs/poc/wiki)
 
 ## Install:
+Use command 
+```bash
+npm install
+```
+and 
+```bash
+./deploy.sh
+```
+then see frontend URL: (looks like
+  Frontend canister via browser
+    ava_poc_full_frontend: http://127.0.0.1:8000/?canisterId=br5f7-7uaaa-aaaaa-qaaca-cai ),
 
-Use commands:
+
+
+or 
+
+use commands:
 ```bash
 dfx canister create rep
 
@@ -45,7 +60,8 @@ dfx canister call nft_container mintDip721 \
   }
 )"
 ```
-or 
+
+or for demo check only:
 
 type <code> ./demo.sh</code>
 

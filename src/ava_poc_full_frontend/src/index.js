@@ -77,7 +77,7 @@ document.getElementById("increaseRepoButton").addEventListener("click", async (e
     // Interact with rep actor, calling the increase method
     try {
       await rep.incrementBalance(user, 1);
-      document.getElementById("increaseResult").innerText = "Reputation in canisted Rep increased!";
+      document.getElementById("increaseResult").innerText = "Reputation in canister Rep increased!";
   } catch (error) {
       console.error("Error getting balance:", error);
       document.getElementById("increaseResult").innerText = "Error getting balance!";

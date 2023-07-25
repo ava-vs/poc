@@ -1,16 +1,39 @@
 {
-  "canisters": {
-    "nft_container": {
-      "type": "motoko",
-      "main": "src/Main.mo"
-    },
-    "rep": {
-      "type": "motoko",
-      "main": "src/ReputationSystem.mo"
-    },
-    "ver": {
-      "type": "motoko",
-      "main": "src/Verification.mo"
+  "canisters": {    
+      "nft_container": {
+        "type": "motoko",
+        "main": "src/ava_poc_full_backend/Main.mo"
+      },
+      "rep": {
+        "type": "motoko",
+        "main": "src/ava_poc_full_backend/Reputation.mo"
+      },
+      "ver": {
+        "type": "motoko",
+        "main": "src/ava_poc_full_backend/Verification.mo"
+      },    
+    "ava_poc_full_frontend": {
+      "dependencies": [
+        "nft_container",
+        "rep",
+        "ver"
+      ],
+      "frontend": {
+        "entrypoint": "src/ava_poc_full_frontend/src/index.html"
+      },
+      "source": [
+        "src/ava_poc_full_frontend/assets",
+        "dist/ava_poc_full_frontend/"
+      ],
+      "type": "assets"
     }
-  }
+  },  
+  "defaults": {
+    "build": {
+      "args": "",
+      "packtool": ""
+    }
+  },
+  "output_env_file": ".env",
+  "version": 1
 }
